@@ -23,6 +23,7 @@ from clinipet.views import (
     UpdatePet,
 )
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Listar-Mascotas/', ListPets.as_view(), name = "Listar-Mascotas"),

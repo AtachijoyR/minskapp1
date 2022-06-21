@@ -15,6 +15,7 @@ class ListPets(ListAPIView):
         return Pet.objects.all()
 
 
+
 class FiltrarPets(ListAPIView):
     #Se escoge el serializador que entrega los datos de todas las mascotas
     serializer_class = PetSerializer
