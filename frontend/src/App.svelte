@@ -3,6 +3,7 @@
 	import Home from './views/Home.svelte'
 	import Login from './views/Login.svelte'
 	import Contact from './views/Contact.svelte'
+	import Register from './views/Register.svelte'
 </script>
 
 <div>
@@ -17,7 +18,7 @@
 				<nav>
 					<Link to="/login">Iniciar Sesión</Link>
 					&nbsp&nbsp;
-					<Link to="/contact">Contacto</Link>
+					<Link to="/register">Contacto</Link>
 				</nav>
 			</div>
 		</nav>
@@ -30,8 +31,8 @@
 			<Login></Login>
 		</Route>
 
-		<Route path = "/contact">
-			<Contact></Contact>
+		<Route path = "/register">
+			<Register></Register>
 		</Route>
 	</Router>
 
