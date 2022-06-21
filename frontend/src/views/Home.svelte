@@ -49,9 +49,12 @@
         background-image: url("https://cdn.discordapp.com/attachments/982444201558020116/988260548690976828/IMG_3446.png");
     }
     h1 {
-		color: #32C2C8;
-		text-transform: uppercase;
+		color: #0050A0;
+        font-family:'Lucida Sans';
 		font-size: 3em;
+        text-transform: uppercase;
         text-align: center;
+        text-decoration: underline;
+        text-shadow: 1px 1px 1px;
 	}         
 </style>
