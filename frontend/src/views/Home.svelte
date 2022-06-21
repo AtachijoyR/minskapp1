@@ -25,6 +25,11 @@
         url: 'https://w0.peakpx.com/wallpaper/481/108/HD-wallpaper-happy-easter-rabbit-grass-easter-card-animal-cute-egg-green-bunny-rodent.jpg',
         title: '',
         subTitle: ''
+        },
+        {
+        url: 'https://cdn.discordapp.com/attachments/964534668462530664/988650453833240636/unknown.png',
+        title: '',
+        subTitle: ''
         }
     ];
     let activeIndex = 0;
@@ -49,7 +54,7 @@
         background-image: url("https://cdn.discordapp.com/attachments/982444201558020116/988260548690976828/IMG_3446.png");
     }
     h1 {
-		color: #0050A0;
+		color: #2F4358;
         font-family:'Lucida Sans';
 		font-size: 3em;
         text-transform: uppercase;

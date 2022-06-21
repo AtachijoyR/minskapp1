@@ -2,7 +2,7 @@
 
 <style>
     h1 {
-        color: #0050A0;
+        color: #2F4358;
         font-family:'Lucida Sans';
         font-size: 2em;
         text-transform: uppercase;
