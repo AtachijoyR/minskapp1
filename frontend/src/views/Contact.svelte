@@ -1,6 +1,5 @@
 <h1>Contacto</h1>
 
-
 <style>
     h1 {
         color: #0050A0;

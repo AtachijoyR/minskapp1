@@ -4,6 +4,8 @@
 	import Login from './views/Login.svelte'
 	import Contact from './views/Contact.svelte'
 	import Register from './views/Register.svelte'
+	import Search from './views/Search.svelte'
+
 </script>
 
 <div>
@@ -34,10 +36,13 @@
 		<Route path = "/register">
 			<Register></Register>
 		</Route>
+
+		<Route path = "/searchPet">
+			<Search></Search>
+		</Route>
 	</Router>
 
 </div>
-
 
 <style>
     nav {
