@@ -7,6 +7,7 @@
 
 <div>
 	<Router>
+		
 		<nav>
 			<div class="left_div">
 				<nav>
@@ -15,6 +16,7 @@
 			</div>
 			<div class="right_div">
 				<nav>
+
 					<Link to="/login">Iniciar Sesión</Link>
 					&nbsp&nbsp;
 					<Link to="/contact">Contacto</Link>
