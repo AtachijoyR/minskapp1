@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from .models import Pet
 from rest_framework.generics import (ListAPIView,CreateAPIView,RetrieveUpdateAPIView)
+from rest_framework import generics
 from rest_framework import status
 
 from .serializers import PetSerializer
@@ -36,4 +37,8 @@ class CrearPets(CreateAPIView):
 class UpdatePet(RetrieveUpdateAPIView):
     serializer_class = PetSerializer
     queryset = Pet.objects.all()
+
+class PetList(generics.ListCreateAPIView):
+    queryset = Pet.objects.all()
+    serializer_class = PetSerializer
 
