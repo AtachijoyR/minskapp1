@@ -1,77 +1,136 @@
 <script lang="ts">
-	import { Form, FormGroup, FormText, Input, Label, Toast, ToastHeader, ToastBody, Icon, Button} from 'sveltestrap';
-	let radioGroup;
+	import {FormGroup, 
+        Input, 
+        Label, 
+        Toast, 
+        ToastHeader, 
+        ToastBody, 
+        Icon, 
+        Button} 
+        from 'sveltestrap';
+  import axios from 'axios';
+  import Swal from 'sweetalert2';
+  
+  let petName = "";
+  let petBreed = "";
+  let petAgeMonths = "";
+  let petWeight = "";
+  let petStatus = "";
+  let petSpecie = "";
+  let petRutOwner = "";
+  let petDescription = "";  
+  let error = null;
+  let visible = true;
 
-  </script>
+  async function sendPets() {
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/Registrar-Mascotas/', {
+        
+        name: petName,
+        breed: petBreed,
+        age_months: petAgeMonths,
+        weight: petWeight,
+        status: "0",
+        specie: petSpecie,
+        rut_owner: petRutOwner,
+        description: petDescription
+      });
+      console.log(response);
+    } catch(e) {
+      error = e
+    }
+  }
 
+	
+</script>
 
-<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 600px;">
-  <div class="p-3 bg-info mb-3" >
+{#if error !== null}
+  {error}
+{:else}
+<div class="d-grid bg-info gap-2 col-6 mx-auto">
+  <div class="d-grid bg-info gap-2 col-6 mx-auto" >
     <Toast class="me-1">
       <ToastHeader>
         <h1>Registrar Mascota <Icon name="pencil-fill" /></h1>
-    </ToastHeader>
+        </ToastHeader>
       <ToastBody>
- 
-            <Form>
+            <form id="form" method="POST">
                 <FormGroup>
                 <Label for="name">Nombre de la Mascota</Label>
-                <Input placeholder="Ingrese nombre" />
+                <Input bind:value={petName} placeholder="Ingrese nombre"/>
                 </FormGroup>
+
                 <FormGroup>
                 <Label for="breed">Raza</Label>
-                <Input
-                    placeholder="Ingrese raza"
-                />
+                <Input bind:value={petBreed} placeholder="Ingrese raza"/>
                 </FormGroup>
+
                 <FormGroup>
                 <Label for="specie">Especie</Label>
-                <Input 
-                    placeholder="Ingrese especie"
-                />
+                <Input bind:value={petSpecie} placeholder="Ingrese especie"/>
                 </FormGroup>
+
                 <FormGroup>
                 <Label for="weight">Peso</Label>
-                <Input
-                    placeholder="Ingrese peso"
-                />
+                <Input bind:value={petWeight} placeholder="Ingrese peso"/>
                 </FormGroup>
                 
                 <FormGroup>
                 <Label for="age">Edad</Label>
-                <Input
-                    placeholder="Ingrese edad en meses"
-                />
-                </FormGroup>
-                <FormGroup>
-                <Label for="rut">RUT dueño</Label>
-                <Input
-                    placeholder="Ingrese RUT"
-                />
+                <Input bind:value={petAgeMonths} placeholder="Ingrese edad en meses"/>
                 </FormGroup>
 
                 <FormGroup>
-                <Label for="status">Estado</Label>
-                <Input type="select" name="select" id="exampleSelect"> 
+                <Label for="rut">RUT dueño</Label>
+                <Input bind:value={petRutOwner} placeholder="Ingrese RUT"/>
+                </FormGroup>
+
+                <FormGroup>
+                  <Label for="status">Estado</Label>
+                  <Input bind:value={petStatus} type="select" name="select" id="exampleSelect">
                     <option>Sano</option>
                     <option>En observación</option>
                     <option>En pabellón</option>
                     <option>Otro</option>
-                </Input>
+                  </Input>
                 </FormGroup>
 
                 <FormGroup>
                 <Label for="description">Descripción</Label>
-                <Input type="textarea" name="text" id="exampleDescription" />
+                <Input bind:value={petDescription} type="textarea" name="text" id="exampleDescription" />
                 </FormGroup>
-                
-            </Form>
-            <div>
-                <Button>INGRESAR</Button>
-            </div>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button id='button' class="btn btn-info" type="button"
+                  on:click={() => {
+                    Swal.fire({
+                      title: '¿Está seguro de que los datos son correctos?',
+                      text: 'Luego no podrá modificar los datos.',
+                      icon: 'warning',
+                      showCancelButton: true,
+                      confirmButtonText: 'Sí',
+                      cancelButtonText: 'No'
+                    }).then(result => {
+                      if (result.value) {
+                        sendPets();
+                        Swal.fire('Su mascota ha sido registrada con éxito!');
+                      }
+                      else if (result.dismiss === Swal.DismissReason.cancel) {
+                        Swal.fire('Cancelado');
+                      }
+                    });
+                  }}>
+                    Registrar
+                  </button>
+              </div>
+            </form>
+            
+            
+            
       </ToastBody>
     </Toast>
+    
   </div>
 </div>
-
+{/if}
 
