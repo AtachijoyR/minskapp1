@@ -1,7 +1,7 @@
 <script>
     import axios from 'axios';
 
-    let ListaAnimales = [];
+    let listaAnimales = [];
     let datoAnimal = "";
 
     const sendData = () => {
@@ -12,7 +12,7 @@
         
         axios.get('http://127.0.0.1:8000/Buscar-Mascotas/' + datoAnimal + '/')
             .then(res => {
-                ListaAnimales = res.data;
+                listaAnimales = res.data;
                 console.log(res);
             })
     }
@@ -25,11 +25,11 @@
         <button on:click|preventDefault = {sendData}> Enviar</button>
     </form>
 
-    {#await ListaAnimales}
+    {#await listaAnimales}
         Loading...
     {:then ListaAnimales}
         <ul>
-            {#each ListaAnimales as animal}
+            {#each listaAnimales as animal}
                 <li> {animal.name} </li>
             {/each}
         </ul>
@@ -37,4 +37,5 @@
     {:catch error}
         {error}
     {/await}
+
 </main>
