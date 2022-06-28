@@ -5,7 +5,9 @@
 	import Contact from './views/Contact.svelte'
 	import Register from './views/Register.svelte'
 	import Search from './views/Search.svelte'
-
+	import Logout from "./views/Logout.svelte";
+	import Visualizar from "./views/Visualizar.svelte"
+	import {user} from "./stores/store";
 </script>
 
 <div>
@@ -18,9 +20,19 @@
 			</div>
 			<div class="right_div">
 				<nav>
-					<Link to="/login">Iniciar Sesión</Link>
+					{#if $user}
+						<Link to ="/contact">About</Link>
+						&nbsp&nbsp;
+						<Link to="/logout">Cerrar sesion</Link>
+					{/if}
+				</nav>
+			</div>
+			<div class="right_div">
+				<nav>
+					{#if !$user}
+						<Link to="/login">Iniciar Sesión</Link>
+					{/if}
 					&nbsp&nbsp;
-					<Link to="/register">Contacto</Link>
 				</nav>
 			</div>
 		</nav>
@@ -40,6 +52,19 @@
 		<Route path = "/searchPet">
 			<Search></Search>
 		</Route>
+
+		<Route path = "/contact">
+			<Contact></Contact>
+		</Route>
+
+		<Route path = "/logout">
+			<Logout></Logout>
+		</Route>
+
+		<Route path = "/visualizar">
+			<Visualizar></Visualizar>
+		</Route>
+		
 	</Router>
 
 </div>
