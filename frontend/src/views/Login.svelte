@@ -2,7 +2,6 @@
     import {setStorageUser, user} from "../stores/store";
     import {navigate} from "svelte-routing";
     import axios from "axios";
-    import {onMount} from "svelte";
     let rut = "atachijoy";
     let password = "123";
     let Tokens =[];
@@ -23,7 +22,7 @@
     
     function login(){
         postUsers();
-        console.log("HOLAAAAAAAAAA");
+        console.log("holaaaaaaaaa");
         setTimeout(()=>{
             let userRegistrado = {
                 username: rut,
