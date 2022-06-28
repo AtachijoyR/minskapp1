@@ -8,8 +8,6 @@ from rest_framework import status
 from .serializers import PetSerializer
 
 
-#clase que permite listar las mascotas
-
 class ListPets(ListAPIView):
     """ Esta es la clase ListPets
 
