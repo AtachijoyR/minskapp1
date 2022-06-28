@@ -6,7 +6,7 @@
 	import Register from './views/Register.svelte'
 	import Search from './views/Search.svelte'
 	import Logout from "./views/Logout.svelte";
-	import Visualizar from "./views/Visualizar.svelte"
+	import Visualize from "./views/Visualize.svelte"
 	import {user} from "./stores/store";
 </script>
 
@@ -61,8 +61,8 @@
 			<Logout></Logout>
 		</Route>
 
-		<Route path = "/visualizar">
-			<Visualizar></Visualizar>
+		<Route path = "/visualize">
+			<Visualize></Visualize>
 		</Route>
 		
 	</Router>

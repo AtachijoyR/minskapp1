@@ -3,36 +3,38 @@
 <script lang="ts">
     import { navigate } from 'svelte-routing';
 
-    import { 
-        Image,
+    import {
         Carousel,
         CarouselControl,
         CarouselIndicators,
-        CarouselItem,
-        CarouselCaption 
-    } from 'sveltestrap/src';
+        CarouselItem
+    } from 'sveltestrap';
 
     import {user} from "../stores/store";
-    function direccionar(){
-        navigate('/visualizar');
+    function directView(){
+        navigate('/visualize');
     }
-    function direccionar1(){
-        navigate('/searchPet');// INSERTAR LA VISTA PARA BUSCAR ANIMAL
+    function directPet(){
+        navigate('/searchPet');
+    }
+    function directRegister(){
+        navigate('/register');
     }
 
 
-    let esVeterinario = false;
-    let esSecretaria = false;
+
+    let isVeterinary = false;
+    let isSecretary = false;
     try{
-		let validar = $user.token
+		let validation = $user.token
 
-		if(validar == 'e17326d066fdc4820582422babe431c8cf1e65f2'){
+		if(validation == 'e17326d066fdc4820582422babe431c8cf1e65f2'){
 			console.log("BIENVENIDO VETERINARIO");
-            esVeterinario = true;
+            isVeterinary = true;
 		}
-        else if(validar == '8dcd6890b322daf80b2dc55e9fab83ddf2d6511f'){
+        else if(validation == '8dcd6890b322daf80b2dc55e9fab83ddf2d6511f'){
             console.log("BIENVENIDA SECRETARIA");
-            esSecretaria = true;
+            isSecretary = true;
         }
 		}
 	catch{
@@ -71,13 +73,16 @@
         <CarouselControl direction="prev" bind:activeIndex {items} />
         <CarouselControl direction="next" bind:activeIndex {items} />
     </Carousel>
-    {#if esVeterinario}
-        <button on:click={direccionar}>Lista de mascotas</button>
-        <button on:click={direccionar1}>Buscar Mascotas</button>
+    {#if isVeterinary}
+        <h1>BIENVENIDA VETERINARIO</h1>
+        <button on:click={directView}>Lista de mascotas</button>
+        <button on:click={directPet}>Buscar Mascotas</button>
+        <button on:click={directRegister}>Registrar Mascota</button>
     {/if}
 
-    {#if esSecretaria}
+    {#if isSecretary}
         <h1>BIENVENIDA SECRETARIA</h1>
+        <button on:click={directRegister}>Registrar Mascota</button>
     {/if}
 </div>
 
