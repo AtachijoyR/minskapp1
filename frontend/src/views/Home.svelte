@@ -14,7 +14,10 @@
 
     import {user} from "../stores/store";
     function direccionar(){
-        navigate('/visualizar')
+        navigate('/visualizar');
+    }
+    function direccionar1(){
+        navigate('/searchPet');// INSERTAR LA VISTA PARA BUSCAR ANIMAL
     }
 
 
@@ -71,6 +74,7 @@
     </Carousel>
     {#if esVeterinario}
         <button on:click={direccionar}>Lista de mascotas</button>
+        <button on:click={direccionar1}>Buscar Mascotas</button>
     {/if}
 
     {#if esSecretaria}
