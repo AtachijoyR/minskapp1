@@ -23,6 +23,8 @@ from clinipet.views import (
     UpdatePet,
 )
 
+from rest_framework.authtoken import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +32,5 @@ urlpatterns = [
     path('Buscar-Mascotas/<owner>/', FiltrarPets.as_view(), name = "Buscar-Mascotas"),
     path('Registrar-Mascotas/', CrearPets.as_view(), name = "Registrar-Mascotas"),
     path('Actualizar-Mascotas/<pk>/', UpdatePet.as_view(), name = "Actualizar-Mascota"),
+    path('generar_token/', views.obtain_auth_token),
 ]
