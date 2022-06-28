@@ -12,7 +12,7 @@
 
     import {user} from "../stores/store";
     function directView(){
-        navigate('/visualizar');
+        navigate('/visualize');
     }
     function directPet(){
         navigate('/searchPet');
