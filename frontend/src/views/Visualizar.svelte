@@ -83,10 +83,6 @@
     th, tr{
         text-align: center;
     }
-    table{
-        background-color: white;
-        width: 100%;
-    }
     thead{
         background-color: #0050A0;
         border-bottom: solid 5px #0F362D;
