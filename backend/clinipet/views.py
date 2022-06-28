@@ -10,9 +10,22 @@ from .serializers import PetSerializer
 
 
 #clase que permite listar las mascotas
+
 class ListPets(ListAPIView):
+    """ Esta es la clase ListPets
+
+    Args:
+        ListAPIView (_type_): Proporciona un control de metodo Get se utiliza para endpoints de solo lectura
+
+    """
     serializer_class = PetSerializer
     def get_queryset(self):
+        """Esta es una funcion que Accede al modelo Pet y posteriormente retorna todos los objetos del modelo mismo.
+        Returns:
+            Pet.objects.all(): Pet es modelo asociado al archivo models de clinipet el cual permite almacenar datos
+            de las mascotas. la llamada a objects.all() se utiliza para retornar todos los objetos pertencientes a
+            un conjunto de datos.
+        """
         return Pet.objects.all()
 
 
@@ -23,9 +36,9 @@ class FiltrarPets(ListAPIView):
 
     #función para filtrar en base a un identificador (en este caso rut del dueño)
     def get_queryset(self):
-        rutOwner = self.kwargs['owner']
+        id = self.kwargs['owner']
         lista = Pet.objects.filter(
-            rut_owner = rutOwner
+            id = id
         )
         return lista
 
@@ -41,4 +54,3 @@ class UpdatePet(RetrieveUpdateAPIView):
 class PetList(generics.ListCreateAPIView):
     queryset = Pet.objects.all()
     serializer_class = PetSerializer
-
