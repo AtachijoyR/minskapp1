@@ -10,9 +10,6 @@ class Pet(models.Model):
         ('2', 'En Observacion'),
         ('3', 'Otro')
     )
-
-
-
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     breed = models.CharField(max_length=50)
@@ -22,3 +19,4 @@ class Pet(models.Model):
     specie = models.CharField(max_length=50)
     rut_owner = models.CharField(max_length=12)
     description = models.CharField(max_length=120, blank = True)
+    #created_at = models.DateTimeField(auto_created=True)
