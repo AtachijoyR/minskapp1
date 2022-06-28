@@ -4,6 +4,7 @@
 	import Login from './views/Login.svelte'
 	import Contact from './views/Contact.svelte'
 	import Register from './views/Register.svelte'
+	import Search from './views/Search.svelte'
 	import Logout from "./views/Logout.svelte";
 	import Visualizar from "./views/Visualizar.svelte"
 	import {user} from "./stores/store";
@@ -47,19 +48,26 @@
 		<Route path = "/register">
 			<Register></Register>
 		</Route>
+
+		<Route path = "/searchPet">
+			<Search></Search>
+		</Route>
+
 		<Route path = "/contact">
 			<Contact></Contact>
 		</Route>
+
 		<Route path = "/logout">
 			<Logout></Logout>
 		</Route>
+
 		<Route path = "/visualizar">
 			<Visualizar></Visualizar>
 		</Route>
+		
 	</Router>
 
 </div>
-
 
 <style>
     nav {
