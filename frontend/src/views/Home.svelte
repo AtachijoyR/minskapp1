@@ -17,7 +17,7 @@
         navigate('/visualizar');
     }
     function direccionar1(){
-        navigate('/buscar');// INSERTAR LA VISTA PARA BUSCAR ANIMAL
+        navigate('/searchPet');// INSERTAR LA VISTA PARA BUSCAR ANIMAL
     }
 
 
