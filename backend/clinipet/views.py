@@ -43,6 +43,12 @@ class FiltrarPets(ListAPIView):
     serializer_class = PetSerializer
 
     def get_queryset(self):
+        """Esta es una función que accede al modelo Pet y posteriormente retorna todos los objetos del mismo que tienen por 
+        dueño el que tiene el rut correspondiente
+
+        Returns:
+            pet_list: Lista que contiene las mascotas del modelo Pet
+        """
         id_pet = self.kwargs['owner']
         pet_list = Pet.objects.filter(
             id = id_pet

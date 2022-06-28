@@ -21,7 +21,6 @@
     }
 
 
-
     let esVeterinario = false;
     let esSecretaria = false;
     try{
