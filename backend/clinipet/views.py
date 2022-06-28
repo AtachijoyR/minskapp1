@@ -36,11 +36,11 @@ class FiltrarPets(ListAPIView):
 
     #función para filtrar en base a un identificador (en este caso rut del dueño)
     def get_queryset(self):
-        id = self.kwargs['owner']
-        lista = Pet.objects.filter(
-            id = id
+        id_pet = self.kwargs['owner']
+        pet_list = Pet.objects.filter(
+            id = id_pet
         )
-        return lista
+        return pet_list
 
 #Clase para Crear Mascotas Requerimiento 2
 class CrearPets(CreateAPIView):
