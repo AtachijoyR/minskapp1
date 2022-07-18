@@ -21,7 +21,7 @@
 			<div class="right_div">
 				<nav>
 					{#if $user}
-						<Link to ="/contact">About</Link>
+						<Link to ="/contact">Sobre Nosotros</Link>
 						&nbsp&nbsp;
 						<Link to="/logout">Cerrar sesion</Link>
 					{/if}
