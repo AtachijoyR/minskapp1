@@ -7,13 +7,10 @@
     const sendData = () => {
 
         let formu = document.getElementById('formu').value;
-
-        console.log(datoAnimal);
         
         axios.get('http://127.0.0.1:8000/Buscar-Mascotas/' + datoAnimal + '/')
             .then(res => {
                 listaAnimales = res.data;
-                console.log(res);
             })
     }
 

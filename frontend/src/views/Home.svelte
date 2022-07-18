@@ -11,34 +11,55 @@
     } from 'sveltestrap';
 
     import {user} from "../stores/store";
+    
+    /*
+    Esta función redirecciona a la vista Visualize.svelte
+    */
     function directView(){
         navigate('/visualize');
     }
+    /*
+    Esta función redirecciona a la vista Search.svelte
+    */
     function directPet(){
         navigate('/searchPet');
     }
+    /*
+    Esta función redirecciona a la vista Register.svelte
+    */
     function directRegister(){
         navigate('/register');
     }
-
-
+    /*
+    Esta función redirecciona a la vista PDF.svelte
+    */
+    function directPdf(){
+        navigate('/pdf');
+    }
+    /*
+    Esta función redirecciona a la vista GenerateFile.svelte
+    */
+    function directGenerate(){
+        navigate('/generate-pdf');
+    }
 
     let isVeterinary = false;
     let isSecretary = false;
+
     try{
 		let validation = $user.token
 
 		if(validation == 'e17326d066fdc4820582422babe431c8cf1e65f2'){
-			console.log("BIENVENIDO VETERINARIO");
+			
             isVeterinary = true;
 		}
         else if(validation == '8dcd6890b322daf80b2dc55e9fab83ddf2d6511f'){
-            console.log("BIENVENIDA SECRETARIA");
+            
             isSecretary = true;
         }
 		}
 	catch{
-		console.log("ERROR");
+		
 	}
 
     const items = [
@@ -74,14 +95,16 @@
         <CarouselControl direction="next" bind:activeIndex {items} />
     </Carousel>
     {#if isVeterinary}
-        <h1>BIENVENIDA VETERINARIO</h1>
+        <h2>BIENVENIDA VETERINARIO</h2>
         <button on:click={directView}>Lista de mascotas</button>
         <button on:click={directPet}>Buscar Mascotas</button>
         <button on:click={directRegister}>Registrar Mascota</button>
+        <button on:click={directPdf}>Emitir PDF</button>
+        <button on:click={directGenerate}>Emitir Certificado</button>
     {/if}
 
     {#if isSecretary}
-        <h1>BIENVENIDA SECRETARIA</h1>
+        <h2>BIENVENIDA SECRETARIA</h2>
         <button on:click={directRegister}>Registrar Mascota</button>
     {/if}
 </div>
@@ -94,6 +117,15 @@
         color: #0050A0;
         font-family:'Lucida Sans';
         font-size: 3em;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: underline;
+        text-shadow: 1px 1px 1px;
+    }
+    h2 {
+        color: #0050A0;
+        font-family:'Lucida Sans';
+        font-size: 2em;
         text-transform: uppercase;
         text-align: center;
         text-decoration: underline;

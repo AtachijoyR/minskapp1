@@ -7,8 +7,10 @@
     let Tokens =[];
     let guardarToken;
 
-
-
+    /*
+    Esta función retornará un Token del superusuario proveniente de
+    la base de datos de Django Rest Framework  
+    */
     const postUsers = ()=>{
         axios.post('http://127.0.0.1:8000/generar_token/',{
             username: rut,
@@ -22,7 +24,6 @@
     
     function login(){
         postUsers();
-        console.log("holaaaaaaaaa");
         setTimeout(()=>{
             let userRegistrado = {
                 username: rut,

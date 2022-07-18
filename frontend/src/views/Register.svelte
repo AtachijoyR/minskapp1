@@ -39,7 +39,6 @@
         rut_owner: petRutOwner,
         description: petDescription
       });
-      console.log(response);
       navigate('/');
     } catch(e) {
       error = e
