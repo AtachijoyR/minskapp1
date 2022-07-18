@@ -22,7 +22,6 @@
     
     function login(){
         postUsers();
-        console.log("holaaaaaaaaa");
         setTimeout(()=>{
             let userRegistrado = {
                 username: rut,
