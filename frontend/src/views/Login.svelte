@@ -4,31 +4,36 @@
     import axios from "axios";
     let rut = "atachijoy";
     let password = "123";
-    let Tokens =[];
-    let guardarToken;
+    let tokens =[];
+    let saveToken;
 
 
-
+    /**
+     * 
+     */
     const postUsers = ()=>{
         axios.post('http://127.0.0.1:8000/generar_token/',{
             username: rut,
             password: password
         })
         .then(res =>{
-            Tokens = res.data;
-            guardarToken= Tokens.token;
+            tokens = res.data;
+            saveToken= tokens.token;
         })
     }
     
+    /**
+     * Función inicia sesión de un determinado usuario.
+     */
     function login(){
         postUsers();
         setTimeout(()=>{
-            let userRegistrado = {
+            let userRegister = {
                 username: rut,
-                token: guardarToken,
+                token: saveToken,
             };
-            user.loginUser(userRegistrado);
-            setStorageUser(userRegistrado);
+            user.loginUser(userRegister);
+            setStorageUser(userRegister);
             navigate('/')
         },1000);
     }
