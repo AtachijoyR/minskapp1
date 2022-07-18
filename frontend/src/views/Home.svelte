@@ -29,11 +29,9 @@
 		let validation = $user.token
 
 		if(validation == 'e17326d066fdc4820582422babe431c8cf1e65f2'){
-			console.log("BIENVENIDO VETERINARIO");
             isVeterinary = true;
 		}
         else if(validation == '8dcd6890b322daf80b2dc55e9fab83ddf2d6511f'){
-            console.log("BIENVENIDA SECRETARIA");
             isSecretary = true;
         }
 		}
