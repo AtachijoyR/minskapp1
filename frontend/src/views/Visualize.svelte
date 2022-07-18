@@ -19,6 +19,11 @@ import Register from './Register.svelte';
     let listaAnimales;
     let animals = [];
     let Tokens = [];
+
+    /*
+    Esta función retornará el registro de todas las mascotas mediante la 
+    conexión con backend
+    */
     const getUsers = ()=>{
         axios.get('http://127.0.0.1:8000/Listar-Mascotas/')
         .then(res=>{
@@ -27,6 +32,11 @@ import Register from './Register.svelte';
         })
     }
     onMount(getUsers);
+
+    /*
+    Esta función retornará un Token del superusuario proveniente de
+    la base de datos de Django Rest Framework  
+    */
     const postUsers = ()=>{
         axios.post('http://127.0.0.1:8000/generar_token/',{
             username: 'atachijoy',
@@ -38,6 +48,11 @@ import Register from './Register.svelte';
         })
     }
     onMount(postUsers);
+
+    /*
+    Esta función permite modificar el estado de una mascota. Mediante el status se llamará a la función axios, 
+    que permitirá la conexión con el backend del proyecto.
+    */
     function modifyStatus(){
         if(status == 'Sano'){
             status = '0';   
