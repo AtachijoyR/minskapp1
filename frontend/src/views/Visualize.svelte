@@ -1,18 +1,28 @@
 
 <script>
+    
     import axios from 'axios';
     import { onMount } from "svelte";
     import { Table } from 'sveltestrap';
     let animals = [];
     let Tokens = [];
+
+    /**
+     * Función que retorna lista de mascotas, 
+     * mediante axios, se retorna la información y
+     * es almacenada en la lista animals.
+     */
     const getUsers = ()=>{
         axios.get('http://127.0.0.1:8000/Listar-Mascotas/')
         .then(res=>{
             animals = res.data;
-            console.log(res);
         })
     }
     onMount(getUsers);
+
+    /**
+     * Función 
+     */
     const postUsers = ()=>{
         axios.post('http://127.0.0.1:8000/generar_token/',{
             username: 'atachijoy',
@@ -75,7 +85,11 @@
     </Table>
 </div>
 
+
 <style>
+    /**
+    * Se editan los estilos de los documentos utilizados en la vista.
+    */
     #main-container{
         margin:  20px auto;
         width: 1100px;
