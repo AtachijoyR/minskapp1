@@ -2,7 +2,6 @@
     import {user} from "../stores/store";
     import { TabContent, TabPane, Card, CardBody } from 'sveltestrap';
 
-    $: console.log('user in contact', $user)
 </script>
 
 
