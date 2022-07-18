@@ -21,12 +21,26 @@
 	let petDescription = "";  
 	let error = null;
 
-  async function sendPets() {
+  /**
+   * Función que modifica variable petStatus,
+   * según estado del animal a registrar.
+   * 
+   */
+  function modifiyStatus() {
     if (petStatus == "Sano") petStatus = '0';
     else if (petStatus == "En observación") petStatus = '1';
     else if (petStatus == "En pabellón") petStatus = '2';
     else if (petStatus == "Otro") petStatus = '3';
+  }
 
+  
+  /**
+   * Función que envía datos del animal a registrar al
+   * backend, con sus respectivo datos.
+  */
+  async function sendPets() {
+    
+    modifiyStatus()
     try {
       const response = await axios.post('http://127.0.0.1:8000/Registrar-Mascotas/', {
         
@@ -39,7 +53,6 @@
         rut_owner: petRutOwner,
         description: petDescription
       });
-      console.log(response);
       navigate('/');
     } catch(e) {
       error = e

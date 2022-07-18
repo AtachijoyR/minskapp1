@@ -7,6 +7,8 @@
 	import Search from './views/Search.svelte'
 	import Logout from "./views/Logout.svelte";
 	import Visualize from "./views/Visualize.svelte"
+	import Pdf from "./views/PDF.svelte";
+	import GenerateFile from "./views/GenerateFile.svelte";
 	import {user} from "./stores/store";
 </script>
 
@@ -21,7 +23,7 @@
 			<div class="right_div">
 				<nav>
 					{#if $user}
-						<Link to ="/contact">About</Link>
+						<Link to ="/contact">Sobre Nosotros</Link>
 						&nbsp&nbsp;
 						<Link to="/logout">Cerrar sesion</Link>
 					{/if}
@@ -63,6 +65,14 @@
 
 		<Route path = "/visualize">
 			<Visualize></Visualize>
+		</Route>
+
+		<Route path = "/pdf">
+			<Pdf></Pdf>
+		</Route>
+
+		<Route path = "/generate-pdf">
+			<GenerateFile></GenerateFile>
 		</Route>
 		
 	</Router>

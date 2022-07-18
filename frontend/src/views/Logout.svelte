@@ -3,6 +3,9 @@
     import {navigate} from 'svelte-routing';
     import {onMount} from "svelte";
 
+    /**
+     * Función que cierra sesión de un usuario.
+     */
     function logout(){
         user.logoutUser();
         navigate('/');
